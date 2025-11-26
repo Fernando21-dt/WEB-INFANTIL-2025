@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Web Infantil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.min.css">
+    <link rel="stylesheet" href="perfil-account.css">
+</head>
+<body>
+     <!-- =================== ENCABEZADO Y NAVEGACIÓN =================== -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/Logo.png" alt="Logo" class="logo-img">
+                    </a>
+                </div>
+                <!-- Menú de navegación -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#sobre">Sobre nosotros</a></li>
+                    <li><a href="index.html#historias">Historias que hablan</a></li>
+                    <li><a href="index.html#tienda">Tienda solidaria</a></li>
+                    <li><a href="index.html#contacto">Contactos</a></li>
+                    <li><a href="index.html#donaciones">Donaciones</a></li>
+                    <li><a href="index.html#recursos">Recursos</a></li>
+                </ul>
+                <!-- Acciones de navegación (carrito, login, idioma, menú móvil) -->
+                <div class="nav-actions">
+                    <!-- Menú de cuenta (logout) -->
+                    <div id="accountMenu" style="display:none; position:absolute; right:10px; top:60px; background:#fff; border:1px solid #ccc; border-radius:6px; z-index:2001;">
+                        <button id="logoutBtn" style="width:100%; padding:10px; border:none; background:none; cursor:pointer;">Cerrar sesión</button>
+                    </div>
+                    <!-- Menú hamburguesa para móvil -->
+                    <div class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- =================== CONTENIDO PRINCIPAL DEL PERFIL =================== -->
+    <section class="perfil-section" style="min-height: 70vh; padding: 40px 0;">
+        <div class="perfil-container">
+            <div class="perfil-header">
+                <button class="perfil-back-btn" onclick="goBack()">← Volver</button>
+<div class="perfil-avatar" id="perfilAvatar">
+  <span id="avatarInicial" style="z-index:1; position:relative;">J</span>
+  <button class="perfil-avatar-change-btn" title="Cambiar foto de perfil" type="button" style="z-index:2; background: transparent; border: none; position: absolute; bottom: 8px; right: 8px; width: 38px; height: 38px; padding: 0; display: flex; align-items: center; justify-content: center;" onclick="document.getElementById('avatarInput').click()">
+    <img src="images/Iconos/camara-2.png" alt="Cambiar foto" style="width: 30px; height: 24px; pointer-events: none;">
+  </button>
+  <input type="file" id="avatarInput" accept="image/*" onchange="cambiarAvatar(event)" style="z-index:3; display:none;">
+</div>
+                <h1 class="perfil-name" id="perfilName">Cargando...</h1>
+                <p class="perfil-email" id="perfilEmail">Cargando...</p>
+            </div>
+
+            <div class="perfil-content">
+                <div id="perfilLoadingSection" class="perfil-loading">
+                    <div class="perfil-spinner"></div>
+                    <p>Cargando información del perfil...</p>
+                </div>
+
+                <div id="perfilProfileContent" style="display: none;">
+                    <div class="perfil-info-section">
+<h2 class="perfil-section-title"><img src="images/Iconos/info.png" alt="Información" style="width: 36px; height: 28px; vertical-align: middle; margin-right: 0.4rem;">Información Personal</h2>
+                        <div class="perfil-info-grid">
+                            <div class="perfil-info-card">
+                                <div class="perfil-info-label">Nombre de usuario</div>
+                                <div class="perfil-info-value" id="perfilInfoUsername">-</div>
+                            </div>
+                            <div class="perfil-info-card">
+                                <div class="perfil-info-label">Correo electrónico</div>
+                                <div class="perfil-info-value" id="perfilInfoEmail">-</div>
+                            </div>
+                            <div class="perfil-info-card">
+                                <div class="perfil-info-label">Fecha de nacimiento</div>
+                                <div class="perfil-info-value" id="perfilInfoBirthdate">-</div>
+                            </div>
+                            <div class="perfil-info-card">
+                                <div class="perfil-info-label">Edad</div>
+                                <div class="perfil-info-value" id="perfilInfoAge">-</div>
+                            </div>
+                            <div class="perfil-info-card">
+                                <div class="perfil-info-label">Miembro desde</div>
+                                <div class="perfil-info-value" id="perfilInfoJoinDate">-</div>
+                            </div>
+                            <div class="perfil-info-card">
+                                <div class="perfil-info-label">Última conexión</div>
+                                <div class="perfil-info-value" id="perfilInfoLastLogin">Ahora</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="perfil-info-section">
+                        <h2 class="perfil-section-title">
+                            <img src="images/Iconos/acciones.png" alt="Acciones" style="width: 22px; height: 32px; vertical-align: middle; margin-right: 0.4rem;">
+                            Acciones
+                        </h2>
+                        <div class="perfil-actions-section">
+                            <button class="perfil-action-btn perfil-btn-primary" onclick="editProfile()">
+                                <img src="images/Iconos/editar.png" alt="Editar Perfil" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 0.3rem; margin-bottom: 0.1rem;">
+                                 Editar Perfil
+                            </button>
+                            <button class="perfil-action-btn perfil-btn-secondary" onclick="changePassword()">
+                                <img src="images/Iconos/clave-2.png" alt="Cambiar Contraseña" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 0.3rem; margin-bottom: 0.1rem;">
+                                 Cambiar Contraseña
+                            </button>
+                            <button class="perfil-action-btn perfil-btn-secondary" onclick="downloadData()">
+                                <img src="images/Iconos/descargar.png" alt="Descargar Datos" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 0.3rem; margin-bottom: 0.1rem;">
+                                 Descargar Datos
+                            <div style="margin-left: -20px;">
+                                <button class="perfil-action-btn perfil-btn-secondary" id="logoutBtnPerfil">
+                                    <img src="images/Iconos/logout.png" alt="Cerrar sesión" class="icon-action">     
+                                    Cerrar sesión
+                                </button>
+                            </div>
+                </div>
+
+                <div id="perfilErrorSection" style="display: none;">
+                    <div class="perfil-error-message">
+                        <h3>❌ Error al cargar el perfil</h3>
+                        <p id="perfilErrorText">No se pudo cargar la información del usuario.</p>
+                        <button class="perfil-action-btn perfil-btn-primary" onclick="retryLoad()" style="margin-top: 15px;">
+                            🔄 Reintentar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- =================== PIE DE PÁGINA (FOOTER) =================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Mensaje principal -->
+                <div class="footer-section">
+                    <h3>Tu voz, su escudo.</h3>
+                    <p>Trabajando juntos para crear un mundo más seguro para todos los niños.</p>
+                </div>
+                <!-- Enlaces rápidos -->
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#sobre">Información</a></li>
+                        <li><a href="#recursos">Recursos</a></li>
+                        <li><a href="#tienda">Tienda</a></li>
+                    </ul>
+                </div>
+                <!-- Información de emergencia -->
+                <div class="footer-section-emergency">
+                    <h4>Emergencias</h4>
+                    <img src="images/Iconos/ECU-911.png" alt="Emergencia" style="height: 48px; vertical-align: middle; margin-left: 1rem; margin-bottom: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem;">
+                        <img src="images/Iconos/Telefono.png" alt="Teléfono" style="height: 24px; vertical-align: middle; margin-left: -1.5rem;">
+                        <p>(02) 600-2200</p>
+                    </div>
+                </div>
+            </div>
+                     <!-- Redes sociales -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank" class="social-icon">
+    <img src="images/Iconos/facebook.png" alt="Facebook" class="facebook-icon">
+</a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon"><img src="images/Iconos/instagram.png" alt="Instagram"></a>
+            <a href="https://wa.me/1234567890" target="_blank" class="social-icon"><img src="images/Iconos/whatsapp.png" alt="WhatsApp"></a>
+            <a href="https://www.tiktok.com" target="_blank" class="social-icon"><img src="images/Iconos/tik-tok.png" alt="TikTok"></a>
+        </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Punto focal. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="perfil-account.min.js"></script>
+    <script src="auth.min.js"></script>
+    <script src="firebase-config.min.js"></script>
+    <script>
+    function cambiarAvatar(event) {
+      const input = event.target;
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const avatar = document.getElementById('perfilAvatar');
+          avatar.style.backgroundImage = `url('${e.target.result}')`;
+          avatar.style.backgroundSize = 'cover';
+          avatar.style.backgroundPosition = 'center';
+          // Oculta la inicial si hay imagen
+          const span = document.getElementById('avatarInicial');
+          if (span) span.style.display = 'none';
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    // Cerrar sesión funcional
+    document.addEventListener('DOMContentLoaded', function() {
+      var btnLogout = document.getElementById('logoutBtnPerfil');
+      if (btnLogout) {
+        btnLogout.addEventListener('click', function() {
+          if (window.firebase && firebase.auth) {
+            firebase.auth().signOut().then(function() {
+              window.location.href = 'index.html';
+            }).catch(function(error) {
+              alert('Error al cerrar sesión');
+            });
+          } else {
+            localStorage.clear();
+            sessionStorage.clear();
+            window.location.href = 'index.html';
+          }
+        });
+      }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+/* Adaptación botón animado tipo Uiverse.io para Universidad Web Infantil */
+.download-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0 0 0;
+}
+
+.download-label {
+  background-color: transparent;
+  border: 2px solid var(--primary-blue);
+  display: flex;
+  align-items: center;
+  border-radius: 3.125rem; /* 50px */
+  width: 160px;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 5px;
+  position: relative;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  min-height: 55px;
+}
+
+.download-label::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  background-color: #fff;
+  width: 8px; height: 8px;
+  transition: var(--transition);
+  border-radius: 100%;
+  margin: auto;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.download-label .input {
+  display: none;
+}
+
+.download-label .title {
+  font-size: 1rem;
+  color: var(--primary-blue);
+  transition: var(--transition);
+  position: absolute;
+  right: 0.7rem;
+  bottom: 14px;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.download-label .title:last-child {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.download-label .circle {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background-color: var(--primary-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition);
+  position: relative;
+  box-shadow: 0 0 0 0 var(--white);
+  overflow: hidden;
+}
+
+.download-label .circle .icon {
+  color: var(--white);
+  width: 30px;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  transition: var(--transition);
+}
+
+.download-label .circle .square {
+  aspect-ratio: 1;
+  width: 15px;
+  border-radius: 2px;
+  background-color: var(--white);
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  transition: var(--transition);
+}
+
+.download-label .circle::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0;
+  background-color: #1C3F81;
+  width: 100%; height: 0;
+  transition: var(--transition);
+}
+
+.download-label:has(.input:checked) {
+  width: 57px;
+  animation: installed 0.4s ease 3.5s forwards;
+}
+
+.download-label:has(.input:checked)::before {
+  animation: rotate 3s ease-in-out 0.4s forwards;
+}
+
+.download-label .input:checked + .circle {
+  animation:
+    pulse 1s forwards,
+    circleDelete 0.2s ease 3.5s forwards;
+  rotate: 180deg;
+}
+
+.download-label .input:checked + .circle::before {
+  animation: installing 3s ease-in-out forwards;
+}
+
+.download-label .input:checked + .circle .icon {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.download-label .input:checked ~ .circle .square {
+  opacity: 1;
+  visibility: visible;
+}
+
+.download-label .input:checked ~ .title {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.download-label .input:checked ~ .title:last-child {
+  animation: showInstalledMessage 0.4s ease 3.5s forwards;
+}
+
+/* Animaciones */
+@keyframes pulse {
+  0% { scale: 0.95; box-shadow: 0 0 0 0 rgba(255,255,255,0.7);}
+  70% { scale: 1; box-shadow: 0 0 0 16px rgba(255,255,255,0);}
+  100% { scale: 0.95; box-shadow: 0 0 0 0 rgba(255,255,255,0);}
+}
+@keyframes installing {
+  from { height: 0;}
+  to { height: 100%;}
+}
+@keyframes rotate {
+  0% { transform: rotate(-90deg) translate(27px) rotate(0); opacity: 1; visibility: visible;}
+  99% { transform: rotate(270deg) translate(27px) rotate(270deg); opacity: 1; visibility: visible;}
+  100% { opacity: 0; visibility: hidden;}
+}
+@keyframes installed {
+  100% { width: 150px; border-color: var(--primary-blue);}
+}
+@keyframes circleDelete {
+  100% { opacity: 0; visibility: hidden;}
+}
+@keyframes showInstalledMessage {
+  100% { opacity: 1; visibility: visible; right: 56px;}
+}

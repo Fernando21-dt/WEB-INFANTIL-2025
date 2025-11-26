@@ -1,0 +1,276 @@
+/* =========================
+   TARJETAS DE MIEMBROS
+   ========================= */
+.card-photo {
+    width: 10rem;
+    height: 10.6rem;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin: 1rem auto 1.5rem auto;
+    display: block;
+    margin-top: 8rem;
+    object-position: center 20%;
+}
+
+.card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.programming-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    padding: 0.5rem 1rem 1rem 1rem;
+    max-width: 100vw;
+    margin: 0 auto;
+}
+
+.programming-card {
+    width: 240px;
+    height: 445px;
+    background: #1e1e1e;
+    border-radius: 15px;
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s;
+}
+
+.programming-card .card-face {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: height 0.5s, font-size 0.5s;
+}
+
+.programming-card .card-face.card-face2 {
+    z-index: 2;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.programming-card .card-face.card-face2 h2 {
+    margin: 0;
+    font-size: 1.7rem;
+    color: #fff;
+    font-family: 'Righteous', cursive, sans-serif;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: font-size 0.5s;
+    font-weight: 700;
+    text-align: center;
+}
+
+.programming-card .card-face1 h3 {
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: 'Righteous', cursive, sans-serif;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.programming-card .card-face1 p {
+    font-size: 1rem;
+    color: #f3f3f3;
+    text-align: center;
+    margin: 0 0.5rem 5rem 0.5rem; /* agrega 1rem de espacio inferior */
+    font-weight: 300;
+}
+
+
+
+.programming-card:hover .card-face.card-face2 {
+    height: 60px;
+}
+.programming-card:hover .card-face.card-face2 h2 {
+    font-size: 1.1rem;
+}
+
+/* Gradientes para cada tarjeta */
+.programming-card:nth-child(1) .card-face.card-face2 {
+    background-color: #1C3F81;
+}
+.programming-card:nth-child(2) .card-face.card-face2 {
+    background-color: #1C3F81;
+}
+.programming-card:nth-child(3) .card-face.card-face2 {
+    background-color: #1C3F81;
+}
+.programming-card:nth-child(4) .card-face.card-face2 {
+    background-color: #1C3F81;
+}
+.programming-card:nth-child(5) .card-face.card-face2 {
+    background-color: #1C3F81;
+}
+.programming-card:nth-child(6) .card-face.card-face2 {
+    background-color: #1C3F81;
+}
+.programming-card:nth-child(7) .card-face.card-face2 {
+    background-color: #1C3F81;
+}
+.programming-card:nth-child(8) .card-face.card-face2 {
+    background-color: #1C3F81;
+}
+
+
+
+.team-section {
+    padding: 8rem 0;
+    background-color: #f3f3f3;
+}
+
+/* Responsive para tarjetas */
+@media (max-width: 1000px) {
+    .programming-cards-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .programming-card {
+        width: 90vw;
+        max-width: 350px;
+        height: 320px;
+    }
+    .programming-card .card-face.card-face2 h2 {
+        font-size: 6em;
+    }
+}
+/* =========================
+   RESPONSIVE 1280px
+   ========================= */
+@media (max-width: 1280px) {
+    .programming-cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        padding: 0.5rem 1rem 1rem 1rem;
+        max-width: 98vw;
+    }
+    .programming-card {
+        width: 220px;
+        max-width: 95vw;
+        height: 400px;
+    }
+    .card-photo {
+        width: 8.5rem;
+        height: 9rem;
+        margin-top: 5rem;
+    }
+    .programming-card .card-face.card-face2 h2 {
+        font-size: 1.5rem;
+    }
+    .team-section {
+        padding: 6rem 0;
+    }
+}
+
+/* =========================
+   RESPONSIVE 768px
+   ========================= */
+@media (max-width: 768px) {
+    .programming-cards-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0.5rem 0.5rem 1rem 0.5rem;
+    }
+    .programming-card {
+        width: 95vw;
+        max-width: 98vw;
+        height: 320px;
+    }
+    .card-photo {
+        width: 90vw;
+        max-width: 220px;
+        height: auto;
+        aspect-ratio: 10/11;
+        margin-top: 2rem;
+    }
+    .programming-card .card-face.card-face2 h2 {
+        font-size: 1.3rem;
+    }
+    .team-section {
+        padding: 4rem 0;
+    }
+}
+
+/* =========================
+   RESPONSIVE 600px
+   ========================= */
+@media (max-width: 600px) {
+    .programming-cards-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0.5rem 0.2rem 1rem 0.2rem;
+    }
+    .programming-card {
+        width: 98vw;
+        max-width: 99vw;
+        height: 260px;
+    }
+    .card-photo {
+        width: 95vw;
+        max-width: 180px;
+        height: auto;
+        aspect-ratio: 10/11;
+        margin-top: 1.5rem;
+    }
+    .programming-card .card-face.card-face2 h2 {
+        font-size: 1.1rem;
+    }
+    .team-section {
+        padding: 2rem 0;
+    }
+    .programming-card .card-face1 h3 {
+        font-size: 1rem;
+    }
+    .programming-card .card-face1 p {
+        font-size: 0.95rem;
+    }
+}
+
+/* =========================
+   RESPONSIVE 480px
+   ========================= */
+@media (max-width: 480px) {
+    .programming-cards-container {
+        grid-template-columns: 1fr;
+        gap: 0.7rem;
+        padding: 0.2rem 0.1rem 0.5rem 0.1rem;
+    }
+    .programming-card {
+        width: 99vw;
+        max-width: 100vw;
+        height: 200px;
+    }
+    .card-photo {
+     width: 98vw;
+        max-width: 140px;
+        height: auto;
+        aspect-ratio: 10/11;
+        margin-top: 1rem;
+    }
+    .programming-card .card-face.card-face2 h2 {
+        font-size: 0.95rem;
+    }
+    .team-section {
+        padding: 1rem 0;
+    }
+    .programming-card .card-face1 h3 {
+        font-size: 0.9rem;
+    }
+    .programming-card .card-face1 p {
+        font-size: 0.9rem;
+    }
+}

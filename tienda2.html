@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protección Infantil - Prevención y Ayuda</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-tienda.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Header dinámico -->
+<header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/Logo.png" alt="Logo" class="logo-img">
+                    </a>
+                </div>
+                
+                <!-- Menú de navegación -->
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#sobre">Sobre nosotros</a></li>
+                    <li><a href="index.html#historias">Historias que hablan</a></li>
+                    <li><a href="index.html#tienda">Tienda solidaria</a></li>
+                    <li><a href="index.html#contacto">Contactos</a></li>
+                    <li><a href="index.html#donaciones">Donaciones</a></li>
+                </ul>
+     <!-- Acciones de navegación (carrito, login, idioma, menú móvil) -->
+                <div class="nav-actions">
+                    <!-- Icono de carrito -->
+                    <div class="cart-icon" id="cartIcon">
+                        🛒
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                    <!-- Botón de inicio de sesión -->
+                    <button class="login-btn" id="loginBtn">Iniciar Sesión</button>
+                    <!-- Menú de cuenta (logout) -->
+                    <div id="accountMenu" style="display:none; position:absolute; right:10px; top:60px; background:#fff; border:1px solid #ccc; border-radius:6px; z-index:2001;">
+                        <button id="logoutBtn" style="width:100%; padding:10px; border:none; background:none; cursor:pointer;">Cerrar sesión</button>
+                    </div>
+                    <!-- Menú hamburguesa para móvil -->
+                    <div class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="store" id="tienda">
+            <div class="container">
+                <h1 class="section-header">Tienda Solidaria</h1>
+                <!-- Notificación de producto agregado -->
+<div id="cartMessage" style="display:none; position:fixed; top:100px; right:20px; background:#192E50; color:white; padding:1rem 1.5rem; border-radius:10px; z-index:1001; font-weight:600; box-shadow:0 4px 20px rgba(0,0,0,0.1); max-width:300px;">
+    Producto agregado al carrito.
+</div>
+                <!-- Layout: imagen en cuadro, info fuera -->
+                <div class="product-detail-layout">
+                    <div class="product-detail-image-box">
+                        <img src="images/saquito-360.jpg" alt="Producto 1">
+                    </div>
+                    <div class="product-detail-info">
+                        <nav class="breadcrumb">Inicio / Camisetas / Hoddie "Habla con ellos"</nav>
+                        <h1 class="product-title">Hoddie "Habla con ellos"</h1>
+                        <div class="product-price">$19.99</div>
+                        <p class="product-desc">Revisa la talla correcta haciendo click en: <em>“Cuadro de tallas”</em></p>
+                        <div class="product-sizes">
+                            <span>Tallas Adultos</span>
+                            <div class="sizes-list">
+                                <button>L</button>
+                                <button>M</button>
+                                <button>S</button>
+                                <button>XL</button>
+                                <button>XS</button>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <input type="number" min="1" value="1" class="product-qty">
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        </div>
+                        <div class="product-meta">
+                            <span>SKU: N/D</span>
+                            <span>Categorías: Bandas, Camisetas, Oversize</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+<!-- =================== PIE DE PÁGINA (FOOTER) =================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Mensaje principal -->
+                <div class="footer-section">
+                    <h3>Tu voz, su escudo.</h3>
+                    <p>Trabajando juntos para crear un mundo más seguro para todos los niños.</p>
+                </div>
+                <!-- Enlaces rápidos -->
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#sobre">Información</a></li>
+                        <li><a href="#recursos">Recursos</a></li>
+                        <li><a href="#tienda">Tienda</a></li>
+                    </ul>
+                </div>
+                <!-- Información de emergencia -->
+                <div class="footer-section-emergency">
+                    <h4>Emergencias</h4>
+                    <p>📞 911</p>
+                    <p>📞 01-800-123-4567</p>
+                </div>
+            </div>
+                     <!-- Redes sociales -->
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank" class="social-icon">
+    <img src="images/Iconos/facebook.png" alt="Facebook" class="facebook-icon">
+</a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon"><img src="images/Iconos/instagram.png" alt="Instagram"></a>
+            <a href="https://wa.me/1234567890" target="_blank" class="social-icon"><img src="images/Iconos/whatsapp.png" alt="WhatsApp"></a>
+            <a href="https://www.tiktok.com" target="_blank" class="social-icon"><img src="images/Iconos/tik-tok.png" alt="TikTok"></a>
+        </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Punto focal. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =================== MODALES (EMERGENCIA, CARRITO, LOGIN, REGISTRO) =================== -->
+
+    <!-- Modal de emergencia -->
+    <div id="emergencyModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🚨 Líneas de Emergencia</h2>
+                <span class="close" onclick="closeEmergencyModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="emergency-numbers">
+                    <div class="emergency-item">
+                        <h3>Emergencia General</h3>
+                        <a href="tel:911" class="emergency-link">📞 911</a>
+                    </div>
+                    <div class="emergency-item">
+                        <h3>Línea de Protección Infantil</h3>
+                        <a href="tel:01-800-123-4567" class="emergency-link">📞 01-800-123-4567</a>
+                    </div>
+                    <div class="emergency-item">
+                        <h3>Apoyo Psicológico 24/7</h3>
+                        <a href="tel:01-800-987-6543" class="emergency-link">📞 01-800-987-6543</a>
+                    </div>
+                </div>
+                <div class="emergency-note">
+                    <p><strong>Importante:</strong> Si estás en peligro inmediato, llama al 911. Si necesitas hablar con alguien sobre una situación preocupante, todas nuestras líneas están disponibles las 24 horas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+ <!-- Modal del carrito de compras -->
+    <div id="cartModal" class="modal" style="display:none;">
+        <div class="modal-content cart-modal-content">
+            <div class="modal-header">
+                <h2>🛒 Carrito de Compras</h2>
+                <span class="close" onclick="closeCartModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems" class="cart-items">
+                    <!-- Aquí se muestran los productos del carrito -->
+                </div>
+                <div class="cart-empty" id="cartEmpty">
+                    <p>Tu carrito está vacío</p>
+                    <button class="btn btn-primary" onclick="closeCartModal()">Seguir Comprando</button>
+                </div>
+                <div class="cart-summary" id="cartSummary" style="display: none;">
+                    <div class="cart-total">
+                        <h3>Total: $<span id="cartTotal">0.00</span></h3>
+                    </div>
+                    <div class="cart-actions">
+                        <button class="btn btn-secondary" onclick="closeCartModal()">Seguir Comprando</button>
+                        <button class="btn btn-primary" onclick="proceedToCheckout()">Proceder al Pago</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+// Simulación de productos en el carrito
+let cart = [];
+
+// Elementos del DOM
+const addToCartBtn = document.querySelector('.btn.btn-primary');
+const cartIcon = document.getElementById('cartIcon');
+const cartCount = document.getElementById('cartCount');
+const cartModal = document.getElementById('cartModal');
+const cartItems = document.getElementById('cartItems');
+const cartEmpty = document.getElementById('cartEmpty');
+const cartSummary = document.getElementById('cartSummary');
+const cartTotal = document.getElementById('cartTotal');
+
+// Añadir producto al carrito
+addToCartBtn.addEventListener('click', () => {
+    // Simulación de producto (puedes adaptar según tus datos)
+    const product = {
+        title: document.querySelector('.product-title').textContent,
+        price: parseFloat(document.querySelector('.product-price').textContent.replace('$', '')),
+        qty: parseInt(document.querySelector('.product-qty').value),
+        img: document.querySelector('.product-detail-image-box img').src
+    };
+
+    // Buscar si ya está en el carrito
+    const existing = cart.find(item => item.title === product.title);
+    if (existing) {
+        existing.qty += product.qty;
+    } else {
+        cart.push(product);
+    }
+
+    updateCartUI();
+    showCartNotification(product.title);
+});
+
+
+// Mostrar modal del carrito al hacer clic en el icono
+cartIcon.addEventListener('click', () => {
+    cartModal.style.display = 'block';
+    updateCartUI();
+});
+
+// Cerrar modal (usa tu función existente o esta)
+function closeCartModal() {
+    cartModal.style.display = 'none';
+}
+
+// Actualizar UI del carrito
+function updateCartUI() {
+    // Actualizar contador
+    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+    cartCount.textContent = totalQty;
+
+    // Mostrar productos en el modal
+    cartItems.innerHTML = '';
+    if (cart.length === 0) {
+        cartEmpty.style.display = 'block';
+        cartSummary.style.display = 'none';
+    } else {
+        cartEmpty.style.display = 'none';
+        cartSummary.style.display = 'block';
+        let total = 0;
+        cart.forEach(item => {
+            total += item.price * item.qty;
+            const div = document.createElement('div');
+            div.className = 'cart-item';
+            div.innerHTML = `
+                <img src="${item.img}" alt="${item.title}" style="width:48px;height:48px;border-radius:8px;margin-right:10px;">
+                <span>${item.title}</span>
+                <span>x${item.qty}</span>
+                <span>$${(item.price * item.qty).toFixed(2)}</span>
+            `;
+            cartItems.appendChild(div);
+        });
+        cartTotal.textContent = total.toFixed(2);
+    }
+}
+
+// Cerrar modal al hacer clic fuera del contenido
+window.onclick = function(event) {
+    if (event.target === cartModal) {
+        closeCartModal();
+    }
+};
+function showCartNotification(productName) {
+    const cartMessage = document.getElementById('cartMessage');
+    cartMessage.textContent = `"${productName}" agregado al carrito.`;
+    cartMessage.style.display = 'block';
+    setTimeout(() => {
+        cartMessage.style.display = 'none';
+    }, 2000);
+}
+</script>
+<script src="script.js"></script>
+</body>
+</html>
